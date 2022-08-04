@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.libro',
+    'import_export',
+    'static',
 ]
 
 MIDDLEWARE = [
