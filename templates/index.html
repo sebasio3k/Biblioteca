@@ -7,7 +7,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Biblioteca Sebastian</title>
+    {% block title %}
+        <title>Biblioteca Sebastian</title>
+    {% endblock title %}
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -128,7 +130,7 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{% static 'images/admin.jpg' %}" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{% static 'images/user-nk.png' %}" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">

@@ -1,6 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
-from django.views.generic import View, TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import View, TemplateView, ListView, CreateView, UpdateView, DeleteView
 
 from apps.libro.forms import AutorForm
 
@@ -12,17 +13,48 @@ class Inicio(TemplateView):
     template_name = 'index.html'
 
 
-class ListadoAutores(TemplateView):
+class ListadoAutores(ListView):
+    model = Autor
     template_name = 'libro/listar_autor.html'
+    context_object_name = 'autores'  # nombre de lista de objetos a mandar en template
+    queryset = autores = Autor.objects.filter(estado=True).order_by('-id')
 
-    def get(self, request, *args, **kwargs):
-        autores = Autor.objects.filter(estado=True).order_by('-id')
-        return render(request, 'libro/listar_autor.html', {'autores': autores})
 
+class CrearAutor(CreateView):
+    model = Autor
+    form_class = AutorForm
+    template_name = 'libro/crear_autor.html'
+    success_url = reverse_lazy('libro:listar_autor')
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context['accion'] = 'Registrar'
+        return context
+
+
+class ActualizarAutor(UpdateView):
+    model = Autor
+    template_name = 'libro/crear_autor.html'
+    form_class = AutorForm
+    success_url = reverse_lazy('libro:listar_autor')
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context['accion'] = 'Editar'
+        return context
+
+
+class EliminarAutor(DeleteView):
+    pass
+
+
+""" VISTAS BASADAS EN FUNCIONES: 
 
 def crearAutor(request):
     if request.method == 'POST':
-        """ 1 Forma de crear: """
+        #   1 Forma de crear: 
         #     nom = request.POST.get('nombre')
         #     ape = request.POST.get('apellidos')
         #     nacio = request.POST.get('nacionalidad')
@@ -33,7 +65,7 @@ def crearAutor(request):
         #
         # return render(request, 'libro/crear_autor.html', {'accion': 'Crear'})
 
-        """ otra forma usando forms """
+        # otra forma usando forms
         print(request.POST)
         autor_form = AutorForm(request.POST)  # datos = request.POST
         if autor_form.is_valid():
@@ -46,7 +78,6 @@ def crearAutor(request):
         # print(autor_form)
     return render(request, 'libro/crear_autor.html', {'autor_form': autor_form, 'accion': 'Crear'})
     # return render(request, 'libro/crear_autor.html', {'accion': 'Crear'})
-
 
 def listarAutor(request):
     # autores = Autor.objects.all().order_by('-id')
@@ -85,3 +116,4 @@ def eliminarAutor(request, id):
         autor.save()
         return redirect('libro:listar_autor')
     return render(request, 'libro/eliminar_autor.html', {'autor': autor})
+"""
