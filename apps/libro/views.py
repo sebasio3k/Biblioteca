@@ -1,29 +1,31 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
+from django.views.generic import View
 
 from apps.libro.forms import AutorForm
 
-# Create your views here.
 from apps.libro.models import Autor
 
 
-def Home(request):
-    # return render(request, 'libro/../../templates/index.html')
-    return render(request, './index.html')
+# Create your views here.
+class Inicio(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, './index.html')
+
 
 
 def crearAutor(request):
     if request.method == 'POST':
         """ 1 Forma de crear: """
-    #     nom = request.POST.get('nombre')
-    #     ape = request.POST.get('apellidos')
-    #     nacio = request.POST.get('nacionalidad')
-    #     desc = request.POST.get('descripcion')
-    #     autor = Autor(nombre=nom, apellidos=ape, nacionalidad=nacio, descripcion=desc)
-    #     autor.save()
-    #     return redirect('libro:listar_autor')
-    #
-    # return render(request, 'libro/crear_autor.html', {'accion': 'Crear'})
+        #     nom = request.POST.get('nombre')
+        #     ape = request.POST.get('apellidos')
+        #     nacio = request.POST.get('nacionalidad')
+        #     desc = request.POST.get('descripcion')
+        #     autor = Autor(nombre=nom, apellidos=ape, nacionalidad=nacio, descripcion=desc)
+        #     autor.save()
+        #     return redirect('libro:listar_autor')
+        #
+        # return render(request, 'libro/crear_autor.html', {'accion': 'Crear'})
 
         """ otra forma usando forms """
         print(request.POST)
