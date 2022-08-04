@@ -11,6 +11,7 @@ from apps.libro.models import Autor
 class Inicio(TemplateView):
     template_name = 'index.html'
 
+
 class ListadoAutores(TemplateView):
     template_name = 'libro/listar_autor.html'
 
