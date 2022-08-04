@@ -19,7 +19,7 @@
                     {#                            class="btn btn-primary btn-lg">#}
                     {#                        Registrar Autor#}
                     {#                    </button>#}
-                    <a class="btn btn-primary btn-lg" href="{% url 'libro:crear_autor' %}">  Registrar Autor</a>
+                    <a class="btn btn-primary btn-lg" href="{% url 'libro:crear_autor' %}"> Registrar Autor</a>
                     {#                    </div>#}
                 </div>
                 <div class="card-body">
@@ -66,8 +66,16 @@
                                     {#                                        Eliminar#}
                                     {#                                    </button>#}
                                     <a class="btn btn-warning btn-md"
-                                       href="{% url 'libro:editar_autor' autor.id %}">Editar</a>
-                                    <a class="btn btn-danger btn-md" href="{% url 'libro:eliminar_autor' autor.id %}">Eliminar</a>
+                                       href="{% url 'libro:editar_autor' autor.id %}">
+                                        Editar
+                                    </a>
+                                    <!-- Button trigger modal -->
+{#                                    <button type="button" class="btn btn-primary mb-1" data-toggle="modal"#}
+{#                                            data-target="#smallmodal">#}
+{#                                        Eliminar#}
+{#                                    </button>#}
+{#                                    <a class="btn btn-danger btn-md" href="{% url 'libro:eliminar_autor' autor.id %}" data-toggle="modal">Eliminar</a>#}
+                                    <a class="btn btn-danger btn-md" href="{% url 'libro:eliminar_autor' autor.id %}" >Eliminar</a>
                                 </td>
                             </tr>
                         {% endfor %}

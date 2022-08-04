@@ -47,7 +47,17 @@ class ActualizarAutor(UpdateView):
 
 
 class EliminarAutor(DeleteView):
-    pass
+    """ Eliminación directa: """
+    model = Autor
+
+    # success_url = reverse_lazy('libro:listar_autor')
+
+    def post(self, request, pk, *args, **kwargs):
+        """ Eliminación lógica """
+        instance = Autor.objects.get(id=pk)
+        instance.estado = False
+        instance.save()
+        return redirect('libro:listar_autor')
 
 
 """ VISTAS BASADAS EN FUNCIONES: 
@@ -115,5 +125,5 @@ def eliminarAutor(request, id):
         autor.estado = False
         autor.save()
         return redirect('libro:listar_autor')
-    return render(request, 'libro/eliminar_autor.html', {'autor': autor})
+    return render(request, 'libro/autor_confirm_delete.html', {'autor': autor})
 """
