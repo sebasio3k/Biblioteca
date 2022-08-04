@@ -1,6 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 
 from apps.libro.forms import AutorForm
 
@@ -8,10 +8,15 @@ from apps.libro.models import Autor
 
 
 # Create your views here.
-class Inicio(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, './index.html')
+class Inicio(TemplateView):
+    template_name = 'index.html'
 
+class ListadoAutores(TemplateView):
+    template_name = 'libro/listar_autor.html'
+
+    def get(self, request, *args, **kwargs):
+        autores = Autor.objects.filter(estado=True).order_by('-id')
+        return render(request, 'libro/listar_autor.html', {'autores': autores})
 
 
 def crearAutor(request):

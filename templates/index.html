@@ -116,16 +116,15 @@
             </div>
             <div class="top-right">
                 <div class="header-menu">
-                    <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-
-                    </div>
+{#                    <div class="header-left">#}
+{#                        <button class="search-trigger"><i class="fa fa-search"></i></button>#}
+{#                        <div class="form-inline">#}
+{#                            <form class="search-form">#}
+{#                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">#}
+{#                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>#}
+{#                            </form>#}
+{#                        </div>#}
+{#                    </div>#}
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -152,97 +151,100 @@
             <!-- Animated -->
             <div class="animated fadeIn">
 
-                <!-- Titulo -->
-                <div class="container text-center ">
+                {% block body %}
+                    <!-- Titulo -->
+                    <div class="container text-center ">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <h1 class="display-3 ">
+                                    Biblioteca Digital
+                                </h1>
+                                <h2 class="display-5">
+                                    Bienvenido
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- /Titulo -->
+
+                    <!-- Widgets  -->
                     <div class="row">
-                        <div class="col-lg-12 col-md-6">
-                            <h1 class="display-3 ">
-                                Biblioteca Digital
-                            </h1>
-                            <h2 class="display-5">
-                                Bienvenido
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <!-- /Titulo -->
-
-                <!-- Widgets  -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="stat-widget-five">
+                                        <div class="stat-icon dib flat-color-1">
+                                            <i class="pe-7s-cash"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="text-left dib">
+                                                <div class="stat-text">$<span class="count">23569</span></div>
+                                                <div class="stat-heading">Revenue</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text">$<span class="count">23569</span></div>
-                                            <div class="stat-heading">Revenue</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="stat-widget-five">
+                                        <div class="stat-icon dib flat-color-2">
+                                            <i class="pe-7s-cart"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="text-left dib">
+                                                <div class="stat-text"><span class="count">3435</span></div>
+                                                <div class="stat-heading">Sales</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="stat-widget-five">
+                                        <div class="stat-icon dib flat-color-3">
+                                            <i class="pe-7s-browser"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="text-left dib">
+                                                <div class="stat-text"><span class="count">349</span></div>
+                                                <div class="stat-heading">Templates</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="stat-widget-five">
+                                        <div class="stat-icon dib flat-color-4">
+                                            <i class="pe-7s-users"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="text-left dib">
+                                                <div class="stat-text"><span class="count">2986</span></div>
+                                                <div class="stat-heading">Clients</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- /Widgets -->
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-2">
-                                        <i class="pe-7s-cart"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">3435</span></div>
-                                            <div class="stat-heading">Sales</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">349</span></div>
-                                            <div class="stat-heading">Templates</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-five">
-                                    <div class="stat-icon dib flat-color-4">
-                                        <i class="pe-7s-users"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">2986</span></div>
-                                            <div class="stat-heading">Clients</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Widgets -->
+                {% endblock body %}
 
             <!-- /#add-category -->
 
