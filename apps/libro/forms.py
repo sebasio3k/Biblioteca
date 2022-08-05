@@ -30,14 +30,14 @@ class AutorForm(forms.ModelForm):
                     'id': 'apellidos',
                 }
             )
-            ,'nacionalidad': forms.TextInput(
+            , 'nacionalidad': forms.TextInput(
                 attrs={
                     'class': 'form-control',
                     'placeholder': 'Escribe la nacionalidad del autor',
                     'id': 'nacionalidad',
                 }
             )
-            ,'descripcion': forms.Textarea(
+            , 'descripcion': forms.Textarea(
                 attrs={
                     'class': 'form-control',
                     'placeholder': 'Pequeña descripción del autor',

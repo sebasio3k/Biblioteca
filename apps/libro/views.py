@@ -19,6 +19,12 @@ class ListadoAutores(ListView):
     context_object_name = 'autores'  # nombre de lista de objetos a mandar en template
     queryset = autores = Autor.objects.filter(estado=True).order_by('-id')
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_autenticated:
+            return render(self.template_name)
+        else:
+            return redirect('login')
+
 
 class CrearAutor(CreateView):
     model = Autor
