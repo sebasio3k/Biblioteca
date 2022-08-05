@@ -14,13 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
+
 from django.urls import path, include
 
 from apps.libro.views import Inicio
+from apps.usuario.views import Login, logoutUsuario
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Enlazar url de app con url de proyecto:
     path('libro/', include(('apps.libro.urls', 'libro'))),
-    path('', Inicio.as_view(), name='index')
+    path('', login_required(Inicio.as_view()), name='index'),
+    path('accounts/login/', Login.as_view(), name='login'),
+    path('logout/', login_required(logoutUsuario), name='logout'),
 ]

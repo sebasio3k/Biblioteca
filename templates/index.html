@@ -80,6 +80,9 @@
 </head>
 
 <body>
+{% block contenido %}
+
+
 <!-- Left Panel -->
 <aside id="left-panel" class="left-panel">
     <nav class="navbar navbar-expand-sm navbar-default">
@@ -150,14 +153,11 @@
                     </a>
 
                     <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                        <a class="nav-link" href="#"><i class="fa fa- user"></i>Mi Perfil</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
-                                class="count">13</span></a>
+                        <a class="nav-link" href="{% url 'admin:index' %}"><i class="fa fa -cog"></i>Administración</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                        <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-power -off"></i>Cerrar Sesión</a>
                     </div>
                 </div>
 
@@ -179,7 +179,7 @@
                                 Biblioteca Digital
                             </h1>
                             <h2 class="display-5">
-                                Bienvenido
+                                Bienvenido  <span> <strong>{{ user.username }}</strong></span>
                             </h2>
                         </div>
                     </div>
@@ -506,5 +506,6 @@
         // Bar Chart #flotBarChart End
     });
 </script>
+{% endblock contenido%}
 </body>
 </html>
