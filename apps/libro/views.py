@@ -11,6 +11,15 @@ from apps.libro.models import Autor, Libro
 class Inicio(TemplateView):
     template_name = 'index.html'
 
+    def get_context_data(self, **kwargs):
+        libros = Libro.objects.filter(estado=True).count()
+        autores = Autor.objects.filter(estado=True).count()
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context['libros'] = libros
+        context['autores'] = autores
+        return context
+
 
 """ Autores """
 
