@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    {{ accion }} Libros
+{% endblock title %}
+
+{% block body %}
+    <h1>{{ accion }} Libros</h1>
+    <hr>
+
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <strong>Libro</strong>
+                <small> - {{ accion }} </small>
+            </div>
+            <div class="card-body card-block">
+                <form action="#" method="post" class="form-horizontal">
+                    {% csrf_token %}
+                    {% if error %}
+                        <h2>{{ error }}</h2>
+                    {% else %}
+                        <div class="row form-group">
+                            <div class="col col-md-3 col-lg-5">
+                                {{ form.titulo.label }}
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                {{ form.titulo }}
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3 col-lg-5">
+                                {{ form.fecha_publicacion.label }}
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                {{ form.fecha_publicacion }}
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3 col-lg-5">
+                                {{ form.autor_id.label }}
+                                <div>
+                                    <small>Presiona ctrl mientras seleccionas más de un autor</small>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                {{ form.autor_id }}
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3 col-lg-5">
+                                {{ form.descripcion.label }}
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                {{ form.descripcion }}
+                            </div>
+                        </div>
+                        <div class="form-actions form-group">
+                            <button type="submit" class="btn btn-success btn-sm">
+                                {{ accion }}
+                            </button>
+                        </div>
+                        <div>
+                            <a href="{% url 'libro:listar_libro' %}">Regresar al catálogo de libros</a>
+                        </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {#    <form method="POST">#}
+    {#        {% csrf_token %}#}
+    {#        {% if error %}#}
+    {#            <h2>{{ error }}</h2>#}
+    {#        {% else %}#}
+    {#            {{ autor_form.as_p }}#}
+    {#            <label>Nombre:</label>#}
+    {#            <input type="text" name="nombre">#}
+    {#            <label>Apellidos:</label>#}
+    {#            <input type="text" name="apellidos">#}
+    {#            <label>Nacionalidad:</label>#}
+    {#            <input type="text" name="nacionalidad">#}
+    {#            <label>Descripción:</label>#}
+    {#            <input type="text" name="descripcion">#}
+    {#            <button type="submit">{{ accion }}</button>#}
+    {#            <br>#}
+    {#            <div>#}
+    {#                <a href="{% url 'libro:listar_autor' %}">Regresar al Inicio</a>#}
+    {#            </div>#}
+    {#        {% endif %}#}
+    {#    </form>#}
+{% endblock body %}
+

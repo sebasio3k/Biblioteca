@@ -1,0 +1,109 @@
+{% load static %}
+<!Doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'images/libro.png' %}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/cs-skin-elastic.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+</head>
+<body  style="background-color: #202124;">
+
+<section class="vh-100" >
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100 py-3">
+            <div class="col col-lg-9">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="{% static 'images/bibliot.jpg' %}"
+                                 alt="login form" class="img-fluid"
+                                 style="border-radius: 1rem 0 0 1rem;"/>
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <div class="d-flex align-items-center mb-3 pb-1">
+                                        <span class="h1 fw-bold mb-0">¡Bienvenido!</span>
+                                    </div>
+
+                                    <h5 class="fw-normal mb-2 pb-2" style="letter-spacing: 1px;">
+                                        Inicia sesión en tu cuenta
+                                    </h5>
+
+                                    <div class="form-group">
+                                        {% if form.error_messages %}
+                                            <div class="sufee-alert alert with-close alert-warning alert-dismissible
+                                                fade show">
+                                                <span class="badge badge-pill badge-warning">Advertencia:</span>
+                                                <strong> </strong> {{ form.get_invalid_login_error }}
+                                                <button type="button"
+                                                        class="close"
+                                                        data-dismiss="alert"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        {% endif %}
+                                        {#                                            <div class="form-outline mb-4">#}
+                                        {#                                                <input#}
+                                        {#                                                        type="text"#}
+                                        {#                                                        name="username"#}
+                                        {#                                                        class="form-control form-control-lg"#}
+                                        {#                                                        placeholder="Nombre de usuario"/>#}
+                                        {{ form.username }}
+                                        {#                                            <label class="form-label" for="form2Example17">Email address</label>#}
+                                    </div>
+                                    {#                                        </div>#}
+
+                                    <div class="form-outline mb-4">
+                                        {{ form.password }}
+                                    </div>
+
+                                    <div class="pt-1 mb-3">
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                                    </div>
+
+                                    {#                                        <a class="small text-muted" href="#!">Forgot password?</a>#}
+                                    <p class="mb-0 pb-lg-0" style="color: #393f81;">
+                                        <a
+                                                href="#!"
+                                                style="color: #393f81;">Crear una cuenta</a>
+                                    </p>
+                                    {#                                        <a href="#!" class="small text-muted">Terms of use.</a>#}
+                                    {#                                        <a href="#!" class="small text-muted">Privacy policy</a>#}
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>
+
