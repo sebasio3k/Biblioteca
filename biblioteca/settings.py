@@ -83,27 +83,16 @@ WSGI_APPLICATION = 'biblioteca.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         # 'ENGINE': 'django.db.backends.sqlite3',
-#         # 'NAME': BASE_DIR / 'db.sqlite3',
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get('DB_NAME_L'),
-#         'USER': os.environ.get('DB_USER_L'),
-#         'PASSWORD': os.environ.get('DB_PWD_L'),
-#         'HOST': os.environ.get('DB_HOST_L'),
-#         'PORT': os.environ.get('DB_PORT_L'),
-#     }
-# }
-
 DATABASES = {
     'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6a68qdf91glic',
-        'USER': 'tyhhebtgxkzlji',
-        'PASSWORD': 'd90f19a25362e79e094169a6913babf81faab5753b21ad4f8a7f6e989546d08b',
-        'HOST': 'ec2-54-161-255-125.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME_L'),
+        'USER': os.environ.get('DB_USER_L'),
+        'PASSWORD': os.environ.get('DB_PWD_L'),
+        'HOST': os.environ.get('DB_HOST_L'),
+        'PORT': os.environ.get('DB_PORT_L'),
     }
 }
 
