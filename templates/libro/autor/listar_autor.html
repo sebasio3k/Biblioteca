@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Listado de autores
+{% endblock title %}
+
+{% block body %}
+    <h1>CATÁLOGO DE AUTORES</h1>
+    <hr>
+    {% if autores %}
+        {#    {% if object_list %}#}
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    {#                    <strong class="card-title">Autores de Libros</strong>#}
+                    {#                    <button#}
+                    {#                            type="button"#}
+                    {#                            class="btn btn-primary btn-lg">#}
+                    {#                        Registrar Autor#}
+                    {#                    </button>#}
+                    <a class="btn btn-primary btn-lg" href="{% url 'libro:crear_autor' %}"> Registrar Autor</a>
+                    {#                    </div>#}
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Nacionalidad</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for autor in autores %}
+                            <tr>
+                                <th scope="row">{{ autor.id }}</th>
+                                <td>{{ autor.nombre }}</td>
+                                <td>{{ autor.apellidos }}</td>
+                                <td>{{ autor.nacionalidad }}</td>
+                                <td>{{ autor.descripcion }}</td>
+                                <td>
+                                    {#                                    <button#}
+                                    {#                                            type="button"#}
+                                    {#                                            class="btn btn-primary"#}
+                                    {#                                            onclick="abrir_modal_creacion('/libro/crear_autor/');"> REGISTRAR AUTOR#}
+                                    {#                                    </button>#}
+
+                                    {#                                    <button#}
+                                    {#                                            type="button"#}
+                                    {#                                            class="btn btn-warning btn-md"#}
+                                    {#                                            href="{% url 'libro:editar_autor' autor.id %}"#}
+                                    {#                                    >#}
+                                    {#                                        <i class="ti-pencil-alt"></i>#}
+                                    {#                                        Editar#}
+                                    {#                                    </button>#}
+                                    {#                                    <button#}
+                                    {#                                            type="button"#}
+                                    {#                                            class="btn btn-danger btn-md"#}
+                                    {#                                            href="{% url 'libro:eliminar_autor' autor.id %}"#}
+                                    {#                                    >#}
+                                    {#                                        <i class="ti-trash"></i>#}
+                                    {#                                        Eliminar#}
+                                    {#                                    </button>#}
+                                    <a class="btn btn-warning btn-md"
+                                       href="{% url 'libro:editar_autor' autor.id %}">
+                                        Editar
+                                    </a>
+                                    <!-- Button trigger modal -->
+{#                                    <button type="button" class="btn btn-primary mb-1" data-toggle="modal"#}
+{#                                            data-target="#smallmodal">#}
+{#                                        Eliminar#}
+{#                                    </button>#}
+{#                                    <a class="btn btn-danger btn-md" href="{% url 'libro:eliminar_autor' autor.id %}" data-toggle="modal">Eliminar</a>#}
+                                    <a class="btn btn-danger btn-md" href="{% url 'libro:eliminar_autor' autor.id %}" >Eliminar</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+        <h1> No existen autores registrados</h1>
+    {% endif %}
+
+{% endblock body %}
