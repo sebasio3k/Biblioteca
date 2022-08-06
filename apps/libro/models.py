@@ -20,7 +20,7 @@ class Autor(models.Model):
 
     def __str__(self):
         """ Para identificar a cada objeto instanciado creado """
-        return self.nombre
+        return f'{self.nombre} {self.apellidos}'
 
 
 class Libro(models.Model):
@@ -28,6 +28,7 @@ class Libro(models.Model):
     titulo = models.CharField('Titulo', max_length=255, blank=False, null=False)
     fecha_publicacion = models.DateField('Fecha de publicación', blank=False, null=False)
     fecha_creacion = models.DateField('Fecha de creación', auto_now=True, auto_now_add=False)
+    estado = models.BooleanField('Estado', default=True)
 
     # 1 libro solo puede tener 1 autor:
     # autor_id = models.OneToOneField(Autor, on_delete=models.CASCADE)

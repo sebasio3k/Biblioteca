@@ -39,7 +39,7 @@ class LibroAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         'titulo',
         'fecha_publicacion',
         'fecha_creacion',
-        # 'estado',
+        'estado',
     ]
     resource_class = AutorResource
 

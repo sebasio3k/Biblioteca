@@ -111,8 +111,8 @@
                         <i class="menu-icon fa fa-book"></i>Libros
                     </a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa ti-book"></i><a href="tables-basic.html">Ver Libros</a></li>
-                        <li><i class="ti-bookmark-alt"></i><a href="tables-data.html">Registrar Libro</a></li>
+                        <li><i class="fa ti-book"></i><a href="{% url 'libro:listar_libro' %}">Ver Libros</a></li>
+                        <li><i class="ti-bookmark-alt"></i><a href="{% url 'libro:crear_libro' %}">Registrar Libro</a></li>
                     </ul>
                 </li>
 
