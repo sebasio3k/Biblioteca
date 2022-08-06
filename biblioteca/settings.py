@@ -95,11 +95,11 @@ WSGI_APPLICATION = 'biblioteca.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME_P'),
-        'USER': os.environ.get('DB_USER_P'),
-        'PASSWORD': os.environ.get('DB_PWD_P'),
-        'HOST': os.environ.get('DB_HOST_P'),
-        'PORT': os.environ.get('DB_PORT_P'),
+        'NAME': 'd6a68qdf91glic',
+        'USER': 'tyhhebtgxkzlji',
+        'PASSWORD': 'd90f19a25362e79e094169a6913babf81faab5753b21ad4f8a7f6e989546d08b',
+        'HOST': 'ec2-54-161-255-125.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
