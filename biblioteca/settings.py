@@ -31,8 +31,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'django-biblioteca-hodev.herokuapp.com',
-    # '127.0.0.1:8000',
-    # '127.0.0.1',
+    '127.0.0.1:8000',
+    '127.0.0.1',
 ]
 
 # Application definition

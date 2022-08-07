@@ -24,11 +24,26 @@ class Inicio(TemplateView):
 """ Autores """
 
 
-class ListadoAutores(ListView):
+class ListadoAutores(View):
     model = Autor
+    form_class = AutorForm
     template_name = 'libro/autor/listar_autor.html'
-    context_object_name = 'autores'  # nombre de lista de objetos a mandar en template
-    queryset = Autor.objects.filter(estado=True).order_by('-id')
+
+    def get_queryset(self):
+        return self.model.objects.filter(estado=True).order_by('-id')
+
+    def get_context_data(self, **kwargs):
+        contexto = {'autores': self.get_queryset(), 'form': self.form_class}
+        return contexto
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, self.get_context_data())
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('libro:listar_autor')
 
 
 class CrearAutor(CreateView):
@@ -74,11 +89,17 @@ class EliminarAutor(DeleteView):
 """ Libro """
 
 
-class ListadoLibros(ListView):
+class ListadoLibros(View):
     model = Libro
     template_name = 'libro/libro/listar_libro.html'
     context_object_name = 'libros'  # nombre de lista de objetos a mandar en template
     queryset = Libro.objects.filter(estado=True).order_by('-id')
+
+    def get(self, request, *args, **kwargs):
+        contexto = {
+            'libros': self.queryset
+        }
+        return render(request, self.template_name, contexto)
 
 
 class CrearLibro(CreateView):
